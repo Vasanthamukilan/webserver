@@ -27,8 +27,40 @@ Serving the HTML pages.
 Testing the webserver
 
 ## PROGRAM:
+'''
+from http.server import HTTPServer , BaseHTTPRequestHandler
+content="""
+<html>
+<head>
+<title>Django</title>
+</head>
+<body>
+
+<h1>Django</h1>
+<p>This is Web Application Framework written in python</p>
+
+</body>
+</html>
+"""
+class myhandler(BaseHTTPRequestHandler):
+     def do_GET(self):
+         print("request received")
+         self.send_response(200)
+         self.send_header('content-type','text/html; charset=utf-8')
+         self.end_headers()
+         self.wfile.write(content.encode())
+server_address = ('',8000)
+httpd = HTTPServer(server_address,myhandler)
+print("my webserver is running....")
+httpd.serve_forever()         
+
+'''
 
 ## OUTPUT:
+### server output
+   ![server side output](./images/Screenshot%20from%202022-12-15%2011-58-25.png)
+### client output
+![server side output](./images/Screenshot%20from%202022-12-15%2010-57-37.png)
 
 ## RESULT:
 The program is executed succesfully
