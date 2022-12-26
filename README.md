@@ -27,6 +27,7 @@ Serving the HTML pages.
 Testing the webserver
 
 ## PROGRAM:
+```
 <!DOCTYPE phtml>
 <html>
 <head>
@@ -39,7 +40,6 @@ Testing the webserver
 
 </body>
 </html>
-```
 class myhandler(BaseHTTPRequestHandler):
      def do_GET(self):
          print("request received")
